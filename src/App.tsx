@@ -1,8 +1,14 @@
+import { RouterProvider } from "react-router-dom"
+import { router } from "./router"
+import { Button } from "./components/shared/Button"
+import { PiggyBank } from "lucide-react"
+
 function App() {
 
   return (
     <>
-      <h1>Hello vite</h1>
+      <RouterProvider router={router} />
+      <Button variant="primary" icon={PiggyBank}>Teste</Button>
     </>
   )
 }
