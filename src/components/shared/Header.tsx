@@ -1,0 +1,52 @@
+import { Clock, Moon, MoonStar, Sun, SunDim, TrendingUp, Wallet, Wallet2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./Button";
+import { useTheme } from "@/hooks/useTheme";
+
+export function Header() {
+    const navigate = useNavigate() // hook do react.router
+    const { theme, changeTheme } = useTheme()
+
+    //Componente aparece em todas as rotas - Header
+    return (
+        <header className="border-b border-(--border) px-6 py-3">
+            <nav className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full">
+                        <Wallet size={20} className="text-primary-foreground" />
+                    </div>
+
+                    <span className="text-lg">
+                        <span className="text-muted-foreground font-medium">Assesora</span>
+                        <span className="font-extrabold">.ia</span>
+                    </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                    {/* Botao retorno rota / */}
+                    <Button
+                        variant="secondary"
+                        icon={TrendingUp}
+                        onClick={() => void navigate('/')}
+                    >
+                        <span className="hidden sm:inline">Fazer nova simulação</span> {/* responsividade */}
+                    </Button>
+
+                    {/* Botao rota /historico */}
+                    <Button
+                        variant="ghost"
+                        icon={Clock}
+                        onClick={() => void navigate('/historico')}
+                    >
+                        <span className="hidden sm:inline">Histórico</span>
+                    </Button>
+                    <Button
+                        variant="ghost" 
+                        icon={theme === 'light' ? MoonStar : Sun} 
+                        onClick={changeTheme}
+                    />
+                </div>
+            </nav>
+        </header>
+    )
+}
