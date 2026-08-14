@@ -1,0 +1,86 @@
+import type { FormStepProps } from "@/components/feature/simulation/FormStep";
+import { CalendarClock, CreditCard, Goal, Landmark, PiggyBank, Wallet } from "lucide-react";
+
+//perguntas da navegação do form
+export const simulationFormSteps: FormStepProps[] = [
+    {
+        id: 'income',
+        icon: PiggyBank,
+        title: 'Renda mensal bruta',
+        question: 'Quanto é depositado na sua conta todo mês (contando todas as fontes)?',
+        inputProps: {
+            placeholder: 'ex: 5.000,00',
+            prefix: 'R$',
+            maxLength: 12
+        }
+    },
+    {
+        id: 'expenses',
+        icon: CreditCard,
+        title: 'Custos fixos de vida',
+        question: 'Quanto você gasta mensalmente com custos fixos (aluguel, contas, etc)?',
+        inputProps: {
+            placeholder: 'ex: 2.000,00',
+            prefix: 'R$',
+            maxLength: 12
+        }
+    },
+    {
+        id: 'debts',
+        icon: Landmark,
+        title: 'Dividas / Parcelas',
+        question: 'Você tem algum valor comprometido com parcelas ou empréstimos mensalmente?',
+        inputProps: {
+            placeholder: 'ex: 500,00',
+            prefix: 'R$',
+            maxLength: 12
+        }
+    },
+    {
+        id: 'goal-name',
+        icon: Goal,
+        title: 'Nome da meta',
+        question: 'Qual o objetivo que você deseja alcançar?',
+        inputProps: {
+            placeholder: 'ex: Viagem para Paris',
+            maxLength: 60
+        }
+    },
+    {
+        id: 'goal-amount',
+        icon: Wallet,
+        title: 'Custo da meta',
+        question: 'Quanto custa realizar esse sonho?',
+        inputProps: {
+            placeholder: 'ex: 15.000,00',
+            prefix: 'R$',
+            maxLength: 12
+        }
+    },
+    {
+        id: 'goal-deadline',
+        icon: CalendarClock,
+        title: 'Prazo desejado',
+        question: 'Em quanto tempo você planeja atingir esse objetivo?',
+        inputProps: {
+            type: 'number',
+            placeholder: 'ex: 12',
+            suffix: 'Meses',
+            min: 1,
+            max: 240
+        },
+        submitButtonProps: {
+            label: 'Gerar simulação'
+        }
+    },
+]
+
+// Tipo escrito à mão, um campo string pra cada id do array acima
+export interface SimulationFormData {
+  income: string
+  expenses: string
+  debts: string
+  goalName: string
+  goalAmount: string
+  goalDeadline: string
+}
