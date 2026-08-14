@@ -1,5 +1,6 @@
 import { SimulationForm } from "../feature/simulation/Form";
 import { SimulationHero } from "../feature/simulation/Hero";
+import { Progress } from "../feature/simulation/Progress";
 
 export function SimulationFormPages() {
     return (
