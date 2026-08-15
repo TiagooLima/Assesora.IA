@@ -23,8 +23,8 @@ export function SimulationForm(){
 
         if(indexCurrentStep+1 > totalSteps-1){
             // se esta na ultima etapa, utiliza o hook de salvar no local storage e joga pra rota resultado
-            saveFormData(updatedFormData)
-            navigate('/resultado')
+            const id = saveFormData(updatedFormData)
+            navigate(`/resultado/${id}`)
             return
         }
 
@@ -43,7 +43,7 @@ export function SimulationForm(){
     return(
         <>
             <Progress totalSteps={totalSteps} currentStep={indexCurrentStep + 1} />
-            <FormStep 
+            <FormStep
                 key={currentStep.id}
                 {...currentStep}
                 onBack={handleBackStep}

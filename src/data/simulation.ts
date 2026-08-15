@@ -37,7 +37,7 @@ export const simulationFormSteps: FormStepProps[] = [
         }
     },
     {
-        id: 'goal-name',
+        id: 'goalName',
         icon: Goal,
         title: 'Nome da meta',
         question: 'Qual o objetivo que você deseja alcançar?',
@@ -47,7 +47,7 @@ export const simulationFormSteps: FormStepProps[] = [
         }
     },
     {
-        id: 'goal-amount',
+        id: 'goalAmount',
         icon: Wallet,
         title: 'Custo da meta',
         question: 'Quanto custa realizar esse sonho?',
@@ -58,7 +58,7 @@ export const simulationFormSteps: FormStepProps[] = [
         }
     },
     {
-        id: 'goal-deadline',
+        id: 'goalDeadline',
         icon: CalendarClock,
         title: 'Prazo desejado',
         question: 'Em quanto tempo você planeja atingir esse objetivo?',
@@ -84,3 +84,6 @@ export interface SimulationFormData {
   goalAmount: string
   goalDeadline: string
 }
+
+//Tipo exclusivamente para id, para que no futuro ser possível pegar esse histórico no localStorage
+export type simulationRecord = SimulationFormData & { id: string }

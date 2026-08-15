@@ -1,6 +1,6 @@
 //arquivo totalmente vibecodado por se tratar de uma função não importante, apenas de formatação de inputs
 
-function formatCurrencyInput(value: number | string): string {
+export default function formatCurrencyInput(value: number | string): string {
   // Aceita apenas dígitos (remove tudo que não for número)
   const digits = String(value).replace(/\D/g, '');
 
@@ -18,4 +18,8 @@ function formatCurrencyInput(value: number | string): string {
   return `${formattedInteger},${cents}`;
 }
 
-export default formatCurrencyInput
+export function parseCurrency(value: string): number {
+  return (
+    parseFloat(value.replace(/\./g, '').replace(',', '.').replace('R$', '')) || 0
+  )
+}
