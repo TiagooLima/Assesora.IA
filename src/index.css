@@ -3,6 +3,7 @@
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
 @import '@fontsource/inter/800.css';
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *)); /*solucionar bug de não trocar a cor de tema quando utilizado dark: */
 
 /* Criando temas com o @layer 'base' -> base simbolizando que isso deve carregar antes das classes utilitarias, ou seja, antes do tailwind */
 @layer base {
@@ -18,8 +19,10 @@
     --muted-foreground: #64748a;
     --secondary-button: #f1f5f9;
     --input: #fcfcfe;
+    --skeleton-base-color: #e1e1f1;
+    --skeleton-highlight-color: #c5c5df;
   }
- 
+
   [data-theme='dark'] {
     --background: #0b1120;
     --foreground: #f1f5f9;
@@ -31,6 +34,8 @@
     --muted-foreground: #94a3b8;
     --secondary-button: #1e293b;
     --input: #111827;
+    --skeleton-base-color: #2f3646;
+    --skeleton-highlight-color: #c5cbdf;
   }
 }
 
@@ -48,6 +53,8 @@
   --color-input: var(--input);
   --color-red-500: #ef4444;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-skeleton-highlight: var(--skeleton-highlight-color);
+  --color-skeleton-base: var(--skeleton-base-color);
 }
 
 @layer base {
@@ -64,5 +71,3 @@
 .lucide {
   stroke-width: 1.5;
 }
- 
- 

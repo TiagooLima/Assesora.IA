@@ -1,4 +1,5 @@
 import type { FormStepProps } from "@/components/feature/simulation/FormStep";
+import type { insightData } from "@/services/aiService";
 import { CalendarClock, CreditCard, Goal, Landmark, PiggyBank, Wallet } from "lucide-react";
 
 //perguntas da navegação do form
@@ -86,4 +87,7 @@ export interface SimulationFormData {
 }
 
 //Tipo exclusivamente para id, para que no futuro ser possível pegar esse histórico no localStorage
-export type simulationRecord = SimulationFormData & { id: string }
+export type simulationRecord = SimulationFormData & {
+  id: string
+  insight?: insightData
+}
