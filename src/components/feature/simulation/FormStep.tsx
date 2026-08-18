@@ -35,7 +35,7 @@ export function FormStep({
 }: FormStepProps & Props) {
   const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!inputValue) {

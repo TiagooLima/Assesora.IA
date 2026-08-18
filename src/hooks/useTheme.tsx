@@ -5,7 +5,7 @@ export function useTheme(){
     const context = useContext(ThemeContext)
 
     if(context == undefined){
-        throw new Error('useTheme precisa estar em um themeProvider')
+        throw new Error('useTheme precisa estar em um ThemeProvider')
     }
 
     return context

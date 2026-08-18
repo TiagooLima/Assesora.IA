@@ -1,4 +1,4 @@
-import { Clock, Moon, MoonStar, Sun, SunDim, TrendingUp, Wallet, Wallet2 } from "lucide-react";
+import { Clock, MoonStar, Sun, TrendingUp, Wallet } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 import { useTheme } from "@/hooks/useTheme";
@@ -41,8 +41,8 @@ export function Header() {
                         <span className="hidden sm:inline">Histórico</span>
                     </Button>
                     <Button
-                        variant="ghost" 
-                        icon={theme === 'light' ? MoonStar : Sun} 
+                        variant="ghost"
+                        icon={theme === 'light' ? MoonStar : Sun}
                         onClick={changeTheme}
                     />
                 </div>
