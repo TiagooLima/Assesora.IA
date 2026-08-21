@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { buildAIPrompt } from '@/data/aiPrompt'
 import { getInsight } from '@/services/aiService'
 import type {insightData} from '@/services/aiService'
-import type { simulationRecord } from '@/data/simulation'
 import { useSimulationStorage } from '@/hooks/useSimulationStorage'
 
 
@@ -39,12 +38,9 @@ export const useInsight = (id: string) => {
         const data = await getInsight(prompt)
         setInsight(data)
 
-        updateSimulation(simulationId, {
-          ...simulation, insight: data
-        } as simulationRecord)
+        updateSimulation(simulationId, { insight: data })
       } catch {
         setError('Erro ao gerar diagnóstico, tente novamente mais tarde')
-        console.log(error)
       } finally {
         isRequestPending.current = false
         setIsLoading(false)

@@ -86,8 +86,17 @@ export interface SimulationFormData {
   goalDeadline: string
 }
 
+export interface ChatMessage {
+    id: string
+    role: 'user' | 'assistant'
+    content: string
+    createdAt: string
+}
+
 //Tipo exclusivamente para id, para que no futuro ser possível pegar esse histórico no localStorage
 export type simulationRecord = SimulationFormData & {
   id: string
+    createdAt?: string
   insight?: insightData
+    chat?: ChatMessage[]
 }
